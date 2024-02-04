@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Serwis.Models;
 using System.Diagnostics;
@@ -19,6 +20,12 @@ namespace Serwis.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult Secured()
         {
             return View();
         }

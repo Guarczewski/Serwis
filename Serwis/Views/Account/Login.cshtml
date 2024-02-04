@@ -1,0 +1,35 @@
+﻿@model LoginWorker
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+
+    Layout = "_Layout";
+
+}
+
+@if (User.IsInRole("Admin"))
+{
+    
+}
+
+
+
+<h1> Logowanie </h1>
+
+<form asp-controller="Account" asp-action="Login" method="post">
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" asp-for="Email">
+        <span asp-validation-for="Email" class="text-danger"> </span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Password" class="form-label">Hasło</label>
+        <input type="password" class="form-control" asp-for="Password">
+        <span asp-validation-for="Password" class="text-danger"> </span>
+    </div>
+
+    <button type="submit" class="btn btn-primary"> Zaloguj </button>
+
+</form>
+
+<div asp-validation-summary="All" class="text-danger"></div>
